@@ -49,6 +49,7 @@
     "eslint-plugin-jsx-a11y": "*",
     "eslint-plugin-react": "*",
     "html-loader": "*",
+    "html-webpack-plugin": "^2.22.0",
     "json-loader": "*",
     "style-loader": "*",
     "stylus": "*",

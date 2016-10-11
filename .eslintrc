@@ -9,6 +9,7 @@
     "alert": true,
     "canvg": true,
     "console": true,
+    "document": true,
     "escape": true,
     "WAGNER": true,
     "module": true,
@@ -21,9 +22,11 @@
     "Power2": true,
     "Power3": true,
     "Power4": true,
-    "Vue": true
+    "Vue": true,
+    "window": true
   },
   "rules": {
+    "class-methods-use-this": 0,
     "import/no-extraneous-dependencies": 0,
     "no-unresolved": 0,
     "no-new": 0,
