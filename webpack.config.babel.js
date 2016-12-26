@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export default {
+const Config = {
   devtool: 'inline-source-map',
   entry: './src/main.js',
   output: {
@@ -74,3 +74,5 @@ export default {
     ]),
   ],
 };
+
+module.exports = Config;

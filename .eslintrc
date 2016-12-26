@@ -11,9 +11,11 @@
     "console": true,
     "document": true,
     "escape": true,
+    "Image": true,
     "WAGNER": true,
     "module": true,
     "require": true,
+    "Signals": true,
     "System": true,
     "user": true,
     "TweenMax": true,
@@ -38,7 +40,13 @@
     max-len: [1, 150, 4]
   },
   "settings": {
-    # "import/resolver": { "webpack": { config: "webpack.config.js" } }
-    "import/resolver": { "webpack": "webpack.config.babel.js" }
-  }
+    "import/parser": "babel-eslint",
+    "import/resolver": { "webpack": { "config": "webpack.config.babel.js" } }
+    # "import/resolver": { "webpack": "webpack.config.babel.js" }
+  },
+  "plugins": [
+    "babel",
+    "import"
+  ],
+  "parser": "babel-eslint"
 }

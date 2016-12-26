@@ -1,9 +1,6 @@
 {
   "presets": ["es2015", "stage-0"],
   "plugins": [
-    "add-module-exports",
-    ["module-resolver", {
-      "root": ["./src"]
-    }]
+    "add-module-exports"
   ]
 }
