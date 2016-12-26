@@ -14,8 +14,9 @@ class Main {
   }
 
   start() {
-    this.router.start(Application, '#application');
-
+    new Application({
+      router: this.router,
+    }).$mount('#application');
   }
 }
 

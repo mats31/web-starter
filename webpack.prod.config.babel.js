@@ -1,14 +1,16 @@
 import path from 'path';
 import webpack from 'webpack';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+// import StatsWebpackPlugin from 'stats-webpack-plugin';
 
 export default {
-  devtool: 'inline-source-map',
   entry: './src/main.js',
   output: {
     path: `${__dirname}/build`,
-    filename: 'bundle.js',
+    filename: '[name]-[hash].min.js',
   },
   resolve: {
     root: path.resolve( __dirname, 'src' ),
@@ -29,12 +31,9 @@ export default {
     ],
     loaders: [
       {
-        test: /\.html$/,
+        test: /\.html?$/,
+        exclude: /node_modules/,
         loader: 'html',
-      },
-      {
-        test: /node_modules/,
-        loader: 'ify',
       },
       {
         test: /\.js$/,
@@ -42,12 +41,16 @@ export default {
         loader: 'babel',
       },
       {
+        test: /node_modules/,
+        loader: 'ify',
+      },
+      {
         test: /\.json$/,
         loader: 'json',
       },
       {
         test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader',
+        loader: ExtractTextPlugin.extract('css-loader!stylus-loader'),
       },
       {
         test: /\.(glsl|frag|vert)$/,
@@ -64,13 +67,23 @@ export default {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: 'body',
-      template: 'src/template/index.tpl.html',
+      template: './src/template/index.tpl.html',
     }),
     new webpack.ProvidePlugin({
-      Vue: 'vue/dist/vue',
+      Vue: 'vue',
     }),
     new CopyWebpackPlugin([
       { from: 'static' },
-    ]),
+    ],
+    { ignore: ['.DS_Store', '.keep'] }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false,
+    //     drop_console: true,
+    //     pure_funcs: ['console.log'],
+    //   },
+    // }),
+    new ExtractTextPlugin('[name]-[hash].min.css', { allChunks: true }),
+    new CleanWebpackPlugin(['build'], { root: `${__dirname}` }),
   ],
 };
