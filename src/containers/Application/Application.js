@@ -1,3 +1,5 @@
+import LoaderComponent from 'components/Loader/Loader';
+
 import template from './application.html';
 
 export default Vue.extend({
@@ -14,4 +16,8 @@ export default Vue.extend({
   ready() {},
 
   methods: {},
+
+  components: {
+    'loader-component': LoaderComponent,
+  },
 });

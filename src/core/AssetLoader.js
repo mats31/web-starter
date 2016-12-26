@@ -1,5 +1,4 @@
 import States from 'core/States';
-import CONSTANTS from 'config/constants';
 import resources from 'config/resources';
 // import { TextureLoader } from 'three';
 
@@ -23,7 +22,7 @@ class AssetLoader {
       this.loadVideos();
     }
 
-    if (this.assetsToLoad === 0) Signals.onAssetsLoaded.dispatch(CONSTANTS.EVENTS.ASSETS_LOADED, 100);
+    if (this.assetsToLoad === 0) Signals.onAssetsLoaded.dispatch(100);
   }
 
   loadImages() {
@@ -37,8 +36,8 @@ class AssetLoader {
         this.assetsLoaded += 1;
 
         const percent = (this.assetsLoaded / this.assetsToLoad) * 100;
-        Signals.onAssetsLoaded.dispatch(CONSTANTS.EVENTS.ASSET_LOADED, percent);
-        if (percent === 100) Signals.onAssetsLoaded.dispatch(CONSTANTS.EVENTS.ASSETS_LOADED, percent);
+        Signals.onAssetLoaded.dispatch(percent);
+        if (percent === 100) Signals.onAssetsLoaded.dispatch(percent);
       }, (err) => {
         console.log(err);
       });
@@ -73,8 +72,8 @@ class AssetLoader {
         this.assetsLoaded += 1;
 
         const percent = (this.assetsLoaded / this.assetsToLoad) * 100;
-        Signals.onAssetsLoaded.dispatch(CONSTANTS.EVENTS.ASSET_LOADED, percent);
-        if (percent === 100) Signals.onAssetsLoaded.dispatch(CONSTANTS.EVENTS.ASSETS_LOADED, percent);
+        Signals.onAssetLoaded.dispatch(percent);
+        if (percent === 100) Signals.onAssetsLoaded.dispatch(percent);
       }, (err) => {
         console.log(err);
       });
@@ -108,8 +107,8 @@ class AssetLoader {
         States.resources.videos.push( video );
         this.assetsLoaded += 1;
         const percent = (this.assetsLoaded / this.assetsToLoad) * 100;
-        Signals.onAssetsLoaded.dispatch(CONSTANTS.EVENTS.ASSET_LOADED, percent);
-        if (percent === 100) Signals.onAssetsLoaded.dispatch(CONSTANTS.EVENTS.ASSETS_LOADED, percent);
+        Signals.onAssetLoaded.dispatch(percent);
+        if (percent === 100) Signals.onAssetsLoaded.dispatch(percent);
       }, (err) => {
         console.log(err);
       });

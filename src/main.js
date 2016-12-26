@@ -1,15 +1,24 @@
+/* exported Signals */
+/* global Signals */
 import domready from 'domready';
+import Application from 'containers/Application/Application';
+import Router from 'core/Router';
+import Signals from 'core/Signals'; /* exported Signals */
 
-import Application from './containers/Application/Application';
-import Router from './core/Router';
+import AssetLoader from 'core/AssetLoader';
+
 import './stylesheets/main.styl';
 
 class Main {
 
   constructor() {
 
-    this.router = new Router();
+    this.setup();
+  }
 
+  setup() {
+
+    this.router = new Router();
     this.start();
   }
 

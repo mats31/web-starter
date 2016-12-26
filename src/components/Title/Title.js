@@ -1,5 +1,6 @@
-import './title.styl';
+import LoaderComponent from 'components/Loader/Loader';
 
+import './title.styl';
 import template from './title.html';
 
 export default Vue.extend({
@@ -11,7 +12,9 @@ export default Vue.extend({
     return {};
   },
 
-  ready() {},
+  created() {},
+
+  mounted() {},
 
   methods: {},
 

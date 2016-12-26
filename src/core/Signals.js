@@ -4,6 +4,7 @@ class Signals {
 
   constructor() {
 
+    this.onAssetLoaded = new Signal();
     this.onAssetsLoaded = new Signal();
   }
 }
