@@ -1,6 +1,7 @@
-/* exported Signals */
-/* global Signals */
+/* eslint no-unused-vars: "off" */
+
 import domready from 'domready';
+import gsap from 'gsap';
 import Application from 'containers/Application/Application';
 import Router from 'core/Router';
 import Signals from 'core/Signals'; /* exported Signals */

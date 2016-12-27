@@ -17,16 +17,34 @@ export default Vue.extend({
     Signals.onAssetsLoaded.add(this.onAssetsLoaded);
   },
 
-  mounted() {},
+  mounted() {
+
+    this.setPercentLoading(0);
+  },
 
   methods: {
 
-    onAssetLoaded(percent) {
-      console.log('asset: ', percent);
+    setPercentLoading(value) {
+      this.$refs.progress.innerHTML = value;
     },
 
-    onAssetsLoaded(percent) {
-      console.log('assets: ', percent);
+    /* Events */
+
+    onAssetLoaded(percent) {
+      this.setPercentLoading(percent);
+    },
+
+    onAssetsLoaded() {
+      TweenLite.to(
+        this.$refs.container,
+        1,
+        {
+          delay: 0.2,
+          display: 'none',
+          opacity: 0,
+          ease: 'Power2.easeOut',
+        },
+      );
     },
   },
 

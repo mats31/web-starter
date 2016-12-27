@@ -18,6 +18,7 @@
     "Signals": true,
     "System": true,
     "user": true,
+    "TweenLite": true,
     "TweenMax": true,
     "TimelineMax": true,
     "Power1": true,
