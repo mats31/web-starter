@@ -12,7 +12,7 @@
   ],
   "license": "MIT",
   "private": true,
-  "main": "index.js",
+  "main": "main.js",
   "author": {
     "name": "Mathis Biabiany",
     "url": "http://mathis-biabiany.fr/",
